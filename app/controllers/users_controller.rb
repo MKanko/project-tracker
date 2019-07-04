@@ -17,6 +17,14 @@ class UsersController < ApplicationController
         else                                  # new user and assign session, redirect to tweets.
             redirect to '/signup'
         end          
+    end
+    
+    get '/login' do                 # login form for existing user
+        if !logged_in?
+            erb :'/users/login'
+        else
+            redirect to '/projects'  
+        end
     end 
     
 end 
