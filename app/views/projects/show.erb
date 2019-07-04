@@ -1,4 +1,34 @@
+<h1>Project View</h1>
+<br>
 
+    <h4>Project Name:</h4>
+
+    <%= @project.project_name %>
+    <br>
+    <br>     
+    <h4>Project Status:</h4>
+     
+    <%= @project.project_status %>
+    <br>
+    <br> 
+    <a href="/projects/<%= @project.id %>/edit">Edit Project</a>
+    <br>
+    <br>
+
+    <form action="/projects/<%= @project.id %>/delete" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Project">
+    </form>
+    <br>
+
+    <form action="/projects" method="projects">
+        <input class="btn btn-primary" type="submit" value="Back to Projects">
+    </form>
+    <br> 
+
+    <form action="/logout" method="logout">
+        <input class="btn btn-primary" type="submit" value="Log Out"> 
+    </form> 
      
 
      

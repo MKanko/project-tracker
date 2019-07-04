@@ -27,4 +27,13 @@ class ProjectsController < ApplicationController
         redirect to '/projects/new'  
     end
 
+    get '/projects/:id' do                     # read/view a specific project 
+        if logged_in?  
+            @project = Project.find_by_id(params[:id]) 
+            erb :'/projects/show'   
+        else 
+            redirect to '/login'
+        end 
+    end
+
 end 
