@@ -26,5 +26,24 @@ class UsersController < ApplicationController
             redirect to '/projects'  
         end
     end 
+
+    post '/login' do                # create new session for existing user
+        @user = User.find_by(:username => params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id 
+            redirect to '/projects' 
+        else
+            redirect to '/login'
+        end 
+    end
+
+    get '/logout' do                # logout existing user/end session. Return to login page.
+        if logged_in?
+            session.destroy
+            redirect to '/'  
+        else
+            redirect to '/login'
+        end 
+    end 
     
 end 
