@@ -47,4 +47,14 @@ class ProjectsController < ApplicationController
         end 
     end
 
+    patch '/projects/:id' do                    # update project from edit form
+        @project = Project.find_by_id(params[:id])
+        if params[:project_name] != "" && params[:project_status] != ""
+            @project.update(project_name: params[:project_name], project_status: params[:project_status]) 
+            redirect to "/projects/#{@project.id}"
+        else
+            redirect to "/projects/#{@project.id}/edit" 
+        end 
+    end
+
 end 
