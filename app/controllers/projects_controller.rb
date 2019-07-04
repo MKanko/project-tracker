@@ -36,4 +36,15 @@ class ProjectsController < ApplicationController
         end 
     end
 
+    get '/projects/:id/edit' do                # get form to edit project
+        if logged_in?
+            @project = Project.find_by_id(params[:id])
+            if @project && @project.user == current_user
+                erb :'/projects/edit'
+            end 
+        else 
+            redirect to '/login'
+        end 
+    end
+
 end 
