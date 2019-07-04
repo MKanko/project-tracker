@@ -1,0 +1,49 @@
+Sinatra MVC Application - Content Management System
+___________________________________________________
+
+Project Tracker:
+
+An app for Building Contractors use in tracking Building Projects.
+__________________________________________________________________
+
+
+Planning:
+
+Use Model-View-Controller architecture to create a domain model of Contractors(users)
+and Projects persisted to a database using Active Record so that projects and project 
+data can be returned to users on request.
+
+Implement two models - Contractor (user) model and Project model.
+
+Model relationship/associations - Contractor has many :projects and Project belongs to :contractor.
+
+Create multiple controllers with singular responsibilities. An application controller which will run 
+the program using a users controller and projects controller mounted to the application controller in
+config.ru. Application controller interacts between models (backend) and views (frontend). The users
+controllers singular resposibility will be user actions (sign in new, login existing, logout, etc.),
+the projects controller singular responsibility will be projects CRUD actions.
+
+Implement the use of Sessions - enable sessions and set session secret in application controller
+configure method, to sign in new, login existing, and authenticate user access passwords.
+
+Implement CRUD - enabling users to "create" projects persisted to db, "read"(retrieve/read from db)
+persisted projects, "update" (retrieve and edit persisted project) and "destroy" (delete persisted
+projects in db).
+__________________________________________________________________ 
+
+Include required features:
+
+Use ActiveRecord with Sinatra.
+Use multiple models.
+Use at least one has_many relationship on a User model and one belongs_to relationship on another model.
+Must have user accounts - users must be able to sign up, sign in, and sign out.
+Validate uniqueness of user login attribute (username or email).
+Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
+Ensure that users can edit and delete only their own resources - not resources created by other users.
+Validate user input so bad data cannot be persisted to the database.
+
+
+
+
+
+
