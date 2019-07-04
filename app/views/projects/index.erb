@@ -1,4 +1,15 @@
+<h2><%= current_user.username %> Projects</h2> 
 
+    <ul>
+        <% @projects.each do |project| %> 
+                      
+                <li><a href="/projects/<%= project.id %>"><%= project.project_name %> project</a></li> 
+            <% end %>
+    </ul>
+    <br>
+    <br>
+    <a href="/projects/new">Create New Project</a>
+    <br>
     
     
 
