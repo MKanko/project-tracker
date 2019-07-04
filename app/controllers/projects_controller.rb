@@ -17,4 +17,14 @@ class ProjectsController < ApplicationController
         end 
     end
 
+    post '/projects' do                        # create new project from form
+        if params[:project_name] != "" 
+            @project = Project.new(params)
+            @project.user = current_user
+            @project.save
+            redirect to "/projects/#{@project.id}"
+        end
+        redirect to '/projects/new'  
+    end
+
 end 
