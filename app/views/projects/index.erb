@@ -3,13 +3,17 @@
     <ul>
         <% @projects.each do |project| %> 
                       
-                <li><a href="/projects/<%= project.id %>"><%= project.project_name %> project</a></li> 
+                <li><a href="/projects/<%= project.id %>"><%= project.project_name %> Project</a></li> 
             <% end %>
     </ul>
     <br>
     <br>
     <a href="/projects/new">Create New Project</a>
     <br>
+    <br>
+    <form action="/logout" method="post">
+        <input class="btn btn-primary" type="submit" value="Log Out"> 
+    </form>
     
     
 

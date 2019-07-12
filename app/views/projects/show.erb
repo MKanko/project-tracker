@@ -5,12 +5,37 @@
 
     <%= @project.project_name %>
     <br>
-    <br>     
-    <h4>Project Status:</h4>
+    <br>
+    <h4>Description:</h4>
+    
+    <%= @project.description %>
+    <br>
+    <br>
+    <h4>Subcontractors:</h4>
+
+    <%= @project.subs %>
+    <br>
+    <br>
+    <h4>Total Cost:</h4>
+
+    <%= @project.total_cost %>
+    <br>
+    <br>
+    <h4>Subcontractor Cost:</h4>
+
+    <%= @project.sub_cost %>
+    <br>
+    <br>
+    <h4>Status:</h4>
      
     <%= @project.project_status %>
     <br>
-    <br> 
+    <br>
+    <h4>Billing Status: </h4>
+
+    <%= @project.billing_status %>
+    <br>
+    <br>   
     <a href="/projects/<%= @project.id %>/edit">Edit Project</a>
     <br>
     <br>
@@ -26,7 +51,7 @@
     </form>
     <br> 
 
-    <form action="/logout" method="logout">
+    <form action="/logout" method="post">
         <input class="btn btn-primary" type="submit" value="Log Out"> 
     </form> 
      

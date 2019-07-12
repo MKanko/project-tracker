@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    get '/signup' do               # sign up form for new user
+    get '/signup' do                              # sign up form for new user
         if !logged_in? 
             erb :'users/signup'
         else
@@ -8,18 +8,25 @@ class UsersController < ApplicationController
         end 
     end
 
-    post '/signup' do                         # create new user
-        if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?  
-            @user = User.new(params)
-            @user.save
-            session[:user_id] = @user.id      # check that a new user has signed up with
-            redirect to '/projects'           # a username, email, and pass word. Create
-        else                                  # new user and assign session, redirect to tweets.
+    post '/signup' do                             # create new user
+        if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
+            if User.all.none? {|user| params[:username] == user.username &&
+                params[:email] == user.email}
+                  
+                @user = User.new(params)
+                @user.save
+                session[:user_id] = @user.id      # check that a new user has signed up with
+                redirect to '/projects'           # a username, email, and pass word. Create
+            else                                  # new user and assign session, redirect to tweets.
+                @signup_error = "That username is already being used." 
+                redirect to '/signup'           
+            end                                   
+        else                                      
             redirect to '/signup'
         end          
     end
     
-    get '/login' do                 # login form for existing user
+    get '/login' do                                # login form for existing user
         if !logged_in?
             erb :'/users/login'
         else
@@ -27,7 +34,7 @@ class UsersController < ApplicationController
         end
     end 
 
-    post '/login' do                # create new session for existing user
+    post '/login' do                               # create new session for existing user
         @user = User.find_by(:username => params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
@@ -37,15 +44,15 @@ class UsersController < ApplicationController
         end 
     end
 
-    get '/logout' do                # logout form for user                
-        if logged_in?
-            erb :'users/logout'   
-        else
-            redirect to '/login'
-        end 
-    end
+    # get '/logout' do                              # logout form for user                
+    #     if logged_in?
+    #         erb :'users/logout'   
+    #     else
+    #         redirect to '/login'
+    #     end 
+    # end
     
-    post '/logout' do               # logout existing user/end session. Return to login page.
+    post '/logout' do                               # logout existing user/end session. Return to login page.
         if logged_in?
             session.destroy
             redirect to '/'  
