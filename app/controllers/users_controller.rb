@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
             if User.all.none? {|user| params[:username] == user.username &&
                 params[:email] == user.email}
-                  
+
                 @user = User.new(params)
                 @user.save
                 session[:user_id] = @user.id      # check that a new user has signed up with
