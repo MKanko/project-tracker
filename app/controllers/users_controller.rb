@@ -19,7 +19,7 @@ class UsersController < ApplicationController
                 redirect to '/projects'           # a username, email, and pass word. Create
             else                                  # new user and assign session, redirect to tweets.
                 @signup_error = "That username is already being used." 
-                redirect to '/signup'           
+                erb :'/users/signup'           
             end                                   
         else                                      
             redirect to '/signup'

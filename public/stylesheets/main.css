@@ -13,14 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: rgba(22, 22, 10, 0.842);
     color: #333;
-    font-family: Sans-Serif;
+    font-family: Sans-Serif; 
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: rgba(173, 224, 19, 0.794);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -36,7 +36,7 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid rgb(155, 236, 50);
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -77,7 +77,7 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid rgb(132, 246, 26);
     margin-top: 20px;
     padding-top: 20px;
   }

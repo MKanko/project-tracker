@@ -1,4 +1,6 @@
-<h2><%= current_user.username %> Projects</h2> 
+<h2>PRB Projects</h2>
+
+<%= @error %> 
 
     <ul>
         <% @projects.each do |project| %> 
@@ -8,12 +10,20 @@
     </ul>
     <br>
     <br>
-    <a href="/projects/new">Create New Project</a>
+    <a href="/projects/new">Create New Project</a> 
     <br>
-    <br>
+    <br>  
+    
+    
     <form action="/logout" method="post">
         <input class="btn btn-primary" type="submit" value="Log Out"> 
     </form>
+
+
+
+    
+
+    
     
     
 

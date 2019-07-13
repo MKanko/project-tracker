@@ -1,13 +1,15 @@
 <h1>Login Form</h1>
 <br>
-<br> 
+<br>
+
+<%= @error %> 
 
 <p>Please login with your username and password.</p> 
 
 <form action="/login" method="post">
 
     Username: <input type="text" name="username" placeholder="Username">
-    Password: <input type="password" name="password" placeholder="password">
+    Password: <input type="password" name="password" placeholder="Password">
     
     <input type="submit" value="submit">
 

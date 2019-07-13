@@ -3,7 +3,7 @@ ___________________________________________________
 
 Project Tracker:
 
-An app for Building Contractors use in tracking Building Projects.
+An app for Project Managers use in tracking Building Projects.
 __________________________________________________________________
 
 
@@ -15,7 +15,7 @@ data can be returned to users on request.
 
 Implement two models - Contractor (user) model and Project model.
 
-Model relationship/associations - Contractor has many :projects and Project belongs to :contractor.
+Model relationship/associations - Project Manager/User has many :projects and Project belongs to :user.
 
 Create multiple controllers with singular responsibilities. An application controller which will run 
 the program using a users controller and projects controller mounted to the application controller in
