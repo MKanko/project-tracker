@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem 'colorize', '~> 0.7.3' 
 
 group :test do
   gem 'rspec'

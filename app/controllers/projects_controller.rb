@@ -1,11 +1,11 @@
-class ProjectsController < ApplicationController
+ class ProjectsController < ApplicationController
 
     get '/projects' do                          
         if logged_in?                            
             @projects = Project.all             
             erb :'/projects/index'              
         else
-            @error = "You must be logged in to view projects."                                    
+            @error = "You must be logged in to view projects."                                     
             erb :'/users/login'
         end                             
     end
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
                     @project.save
                     redirect to "/projects/#{@project.id}"
                 else 
-                    @error = "A project must have a name!"
+                    @error = "A project must have a name!"  
                     erb :'/projects/new'
                 end
             else
