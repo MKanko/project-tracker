@@ -12,33 +12,28 @@
 
     get '/projects/new' do                     
         if logged_in?
-            erb :'/projects/new'
-              
-        else 
-            redirect to '/login'
+            erb :'/projects/new'             
+        else
+            @error = "You must be logged in to create a project." 
+            erb :'/users/login'
         end 
     end
 
     post '/projects' do
-        #if logged_in? 
-            if Project.all.none? {|project| params[:project_name] == project.project_name}   
-                if params[:project_name] != "" 
-                    @project = Project.new(params)
-                    @project.user = current_user    
-                    @project.save
-                    redirect to "/projects/#{@project.id}"
-                else 
-                    @error = "A project must have a name!"  
-                    erb :'/projects/new'
-                end
-            else
-                @error = "This project already exists."
+        if Project.all.none? {|project| params[:project_name] == project.project_name}   
+            if params[:project_name] != "" 
+                @project = Project.new(params)
+                @project.user = current_user    
+                @project.save
+                redirect to "/projects/#{@project.id}"
+            else 
+                @error = "A project must have a name!"  
                 erb :'/projects/new'
             end
-        # else 
-        #     @error = "You must be logged in to create a project." 
-        #     erb :'/users/login'
-        # end      
+        else
+            @error = "This project already exists."
+            erb :'/projects/new'
+        end     
     end
 
     get '/projects/:id' do                      
@@ -46,7 +41,8 @@
             @project = Project.find_by_id(params[:id]) 
             erb :'/projects/show'   
         else 
-            redirect to '/login'
+            @error = "You must be logged in to view a project." 
+            erb :'/users/login'
         end 
     end
 
@@ -59,7 +55,8 @@
                 redirect to '/projects'  
             end 
         else 
-            redirect to '/login'
+            @error = "You must be logged in to edit a project."
+            erb :'/users/login'
         end 
     end
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    get '/signup' do                              # sign up form for new user
+    get '/signup' do                              
         if !logged_in? 
             erb :'users/signup'
         else
@@ -8,9 +8,9 @@ class UsersController < ApplicationController
         end 
     end
 
-    post '/signup' do                             # create new user
+    post '/signup' do                            
         if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
-            if User.all.none? {|user| params[:username] == user.username &&
+            if User.all.none? {|user| params[:username] == user.username || 
                 params[:email] == user.email}
 
                 @user = User.new(params)
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
                 session[:user_id] = @user.id      # check that a new user has signed up with
                 redirect to '/projects'           # a username, email, and pass word. Create
             else                                  # new user and assign session, redirect to tweets.
-                @signup_error = "That username is already being used." 
+                @error = "That username is already being used." 
                 erb :'/users/signup'           
             end                                   
         else                                      
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     get '/login' do                                # login form for existing user
         if !logged_in?
             erb :'/users/login'
-        else
+        else            
             redirect to '/projects'  
         end
     end 
@@ -40,7 +40,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id 
             redirect to '/projects' 
         else
-            redirect to '/login'
+            @error = "Invalid username or password please re-enter username and password, or return to sign up for an account." 
+            erb :'/users/login' 
         end 
     end
 

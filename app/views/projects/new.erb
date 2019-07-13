@@ -3,7 +3,7 @@
     <p>Project Information:<p> 
 
         <form action="/projects" method="post">          
-            Project Name: <input type="text" name="project_name"> <%= @error %> 
+            Project Name: <input type="text" name="project_name"> <font color="red"><%= @error %></font>  
             <br>
             <br>
             Description: <input type="text" name="description">

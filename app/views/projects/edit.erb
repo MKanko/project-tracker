@@ -3,7 +3,7 @@
         <form action='/projects/<%= @project.id %>' method='post'>
         <input type='hidden' name='_method' value='patch'>
 
-        Project Name: <input type='text' name='project_name' value='<%= @project.project_name %>'> <%= @error %>
+        Project Name: <input type='text' name='project_name' value='<%= @project.project_name %>'> <font color="red"><%= @error %></font> 
         <br>
         <br>
         Description: <input type='text' name='description' value='<%= @project.description %>'> 
