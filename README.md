@@ -1,16 +1,19 @@
 Project Tracker:
+___________________
 
 An in house server app for companies to track building projects.
 
 Installation and Start:
+_________________________
 
 1) Fork and clone this repo.
 2) Run bundle install to install required gems.
 3) Run rake db:migrate to migrate tables and set up the data base.
-4) Run shotgun and navigate to http://localhost:9393
+4) Run shotgun and navigate to localhost:9393
 
 
 Contributors Guide:
+______________________
 
 Did you find a bug?
 Ensure the bug was not already reported by searching on GitHub under Issues.
@@ -21,8 +24,7 @@ Did you write a patch that fixes a bug?
 Open a new GitHub pull request with the patch.
 
 Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
-
-Thanks.
+______________________________________________________________________________________________________________________
 
 This project has been licensed under the MIT open source license:
 
