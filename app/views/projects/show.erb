@@ -47,8 +47,9 @@
 
     <% if @project.user == current_user %>     
 
-        <a href="/projects/<%= @project.id %>/edit">Edit Project</a>
-        <br>
+        <form action="/projects/<%= @project.id %>/edit" method="/projects/<%= @project.id %>/edit">
+            <input class="btn btn-primary" type="submit" value="Edit Project"> 
+        </form>        
         <br>
 
         <form action="/projects/<%= @project.id %>/delete" method="post">
@@ -60,14 +61,18 @@
     <% end %> 
 
     <form action="/projects" method="projects">
-        <input class="btn btn-primary" type="submit" value="Back to Projects">
+        <input class="btn btn-primary" type="submit" value="Return to Projects">
     </form>
     <br> 
 
     <form action="/logout" method="post">
         <input class="btn btn-primary" type="submit" value="Log Out"> 
     </form>
-    <br>  
+    <br>
+
+    <p><font color="blue">Current User: <%= current_user.username %></font></p>
+    
+    
      
 
      

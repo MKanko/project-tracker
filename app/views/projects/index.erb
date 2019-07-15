@@ -1,28 +1,31 @@
 <h2>PRB Projects</h2>
-
+  
 <font color="red"><%= @error %></font>  
 
     <ul>
         <% @projects.each do |project| %> 
                       
-            <li><a href="/projects/<%= project.id %>"><%= project.project_name %> Project</a></li><%= project.user.username %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %> Project</a></li>Project <%= project.user.username %>
             <br>
             <br>  
         <% end %>
     </ul>
     <br>
-    <br>
-    <a href="/projects/new">Create New Project</a> 
-    <br>
-    <br>  
     
-    
+    <form action="/projects/new" method="/projects/new">
+        <input class="btn btn-primary" type="submit" value="Create New Project"> 
+    </form>
+    <br>
+             
     <form action="/logout" method="post">
         <input class="btn btn-primary" type="submit" value="Log Out"> 
     </form>
+    <br> 
+
+<p><font color="blue">Current User: <%= current_user.username %></font></p>
 
 
-
+ 
     
 
     
